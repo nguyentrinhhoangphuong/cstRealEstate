@@ -77,8 +77,8 @@ $current_module = segment(1);
                 </a>
             </li>
             <li>
-                <a href="news/manage"<?= $current_module === 'news' ? ' class="active"' : '' ?>>
-                    Manage News
+                <a href="posts/manage"<?= $current_module === 'posts' ? ' class="active"' : '' ?>>
+                    Bài viết
                 </a>
             </li>
             <li class="nav-dropdown">
@@ -161,6 +161,7 @@ $current_module = segment(1);
 </nav>
 
 <script src="templates_module/js/admin.js"></script>
+<script src="templates_module/js/toast.js"></script>
 <?= $additional_includes_btm ?? '' ?>
 </body>
 </html>

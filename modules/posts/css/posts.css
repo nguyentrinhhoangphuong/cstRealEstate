@@ -1,0 +1,27 @@
+.posts-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.posts-filter {
+    width: auto;
+}
+
+.post-update-status {
+    cursor: pointer;
+    padding: 4px 12px;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+.posts-publish {
+    background: #27ae60;
+    color: #fff
+}
+
+.posts-draft {
+    background: #bdc3c7;
+    color: #fff
+}

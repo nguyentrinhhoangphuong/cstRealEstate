@@ -1,18 +1,18 @@
 const TG_ADMIN = {
   init() {
     this.hamburger = document.getElementById('hamburger');
-    this.slideNav  = document.getElementById('slide-nav');
-    this.overlay   = document.getElementById('nav-overlay');
-    this.closeBtn  = document.getElementById('close-slide-nav');
+    this.slideNav = document.getElementById('slide-nav');
+    this.overlay = document.getElementById('nav-overlay');
+    this.closeBtn = document.getElementById('close-slide-nav');
     this.topRhsSelectors = document.querySelectorAll('.top-rhs-selector');
     this.adminSettingsDropdown = document.getElementById('admin-settings-dropdown');
-    
+
     // Initialize dropdown navigation
     this.initDropdowns();
-    
+
     // Initialize admin settings dropdown
     this.initAdminDropdown();
-    
+
     // ------------------------------------------------------------------
     // INSTANT OPEN (touchstart + mousedown)
     // ------------------------------------------------------------------
@@ -23,7 +23,7 @@ const TG_ADMIN = {
       }
     };
     this.hamburger?.addEventListener('touchstart', triggerOpen, { passive: false });
-    this.hamburger?.addEventListener('mousedown',  triggerOpen);
+    this.hamburger?.addEventListener('mousedown', triggerOpen);
     // Fallback click for keyboard only
     this.hamburger?.addEventListener('click', (e) => {
       if (!this.slideNav?.classList.contains('open')) {
@@ -42,10 +42,10 @@ const TG_ADMIN = {
     };
     // Close button (×)
     this.closeBtn?.addEventListener('touchstart', triggerClose, { passive: false });
-    this.closeBtn?.addEventListener('mousedown',  triggerClose);
+    this.closeBtn?.addEventListener('mousedown', triggerClose);
     // Overlay (tap outside)
     this.overlay?.addEventListener('touchstart', triggerClose, { passive: false });
-    this.overlay?.addEventListener('mousedown',  triggerClose);
+    this.overlay?.addEventListener('mousedown', triggerClose);
     // Keep click fallbacks (keyboard accessibility + old devices)
     this.closeBtn?.addEventListener('click', (e) => {
       e.preventDefault();
@@ -62,23 +62,23 @@ const TG_ADMIN = {
       }
     });
   },
-  
+
   initDropdowns() {
     const dropdowns = document.querySelectorAll('.side-nav-menu .nav-dropdown');
-    
+
     dropdowns.forEach((dropdown) => {
       const submenu = dropdown.querySelector('.nav-submenu');
-      
+
       if (dropdown.classList.contains('open') && submenu) {
         submenu.style.maxHeight = submenu.scrollHeight + 'px';
       }
-      
+
       dropdown.addEventListener('click', (e) => {
         const arrow = dropdown.querySelector('.arrow-icon');
         arrow?.classList.toggle('rotate');
-        
+
         dropdown.classList.toggle('open');
-        
+
         if (submenu.style.maxHeight && submenu.style.maxHeight !== '0px') {
           submenu.style.maxHeight = '0';
         } else {
@@ -87,7 +87,7 @@ const TG_ADMIN = {
       });
     });
   },
-  
+
   initAdminDropdown() {
     // Toggle dropdown when clicking any top-rhs-selector (mobile or desktop)
     this.topRhsSelectors?.forEach((selector) => {
@@ -96,16 +96,16 @@ const TG_ADMIN = {
         this.adminSettingsDropdown?.classList.toggle('active');
       });
     });
-    
+
     // Close dropdown when clicking anywhere else on the page
     document.body.addEventListener('click', (e) => {
-      if (this.adminSettingsDropdown && 
-          !this.adminSettingsDropdown.contains(e.target) && 
-          !e.target.closest('.top-rhs-selector')) {
+      if (this.adminSettingsDropdown &&
+        !this.adminSettingsDropdown.contains(e.target) &&
+        !e.target.closest('.top-rhs-selector')) {
         this.adminSettingsDropdown.classList.remove('active');
       }
     });
-    
+
     // Close dropdown when pressing Escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && this.adminSettingsDropdown?.classList.contains('active')) {
@@ -113,13 +113,13 @@ const TG_ADMIN = {
       }
     });
   },
-  
+
   openSlideNav() {
     this.slideNav?.classList.add('open');
     this.overlay?.classList.add('open');
     document.body.classList.add('nav-open');
   },
-  
+
   closeSlideNav() {
     this.slideNav?.classList.remove('open');
     this.overlay?.classList.remove('open');

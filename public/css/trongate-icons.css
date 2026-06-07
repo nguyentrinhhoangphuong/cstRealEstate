@@ -99,6 +99,14 @@
     margin-right: -0.15em;
 }
 
+.tg-pencil {
+    -webkit-mask-image: url('../trongate-icons/pencil.svg');
+    mask-image: url('../trongate-icons/pencil.svg');
+    transform: translateY(0.06em) scale(1.2);
+    margin-left: 0.15em;
+    margin-right: -0.15em;
+}
+
 .tg-user-circle {
     -webkit-mask-image: url('../trongate-icons/user-circle.svg');
     mask-image: url('../trongate-icons/user-circle.svg');
