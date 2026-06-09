@@ -128,3 +128,18 @@ const TG_ADMIN = {
 };
 
 document.addEventListener('DOMContentLoaded', () => TG_ADMIN.init());
+
+
+// xử lý pagi khi có ? đằng sau ví dụ posts/manage/2?type=product
+document.addEventListener('DOMContentLoaded', function () {
+  var qs = window.location.search;
+  if (qs) {
+    document.querySelectorAll('.pagination a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        if (this.href.indexOf('?') === -1) {
+          this.href += qs;
+        }
+      });
+    });
+  }
+});

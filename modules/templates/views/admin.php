@@ -92,13 +92,14 @@ $current_module = segment(1);
                     <li><a href="reports/exports">Exports</a></li>
                 </ul>
             </li>
-            <li class="nav-dropdown<?= $current_module === 'trongate_rbac' || $current_module === 'settings' ? ' open' : '' ?>">
+            <li class="nav-dropdown<?= $current_module === 'trongate_rbac' || $current_module === 'settings' || $current_module === 'post_types' ? ' open' : '' ?>">
                 <div>
                     <span>Settings</span>
-                    <span aria-hidden="true" class="arrow-icon<?= $current_module === 'trongate_rbac' || $current_module === 'settings' ? ' rotate' : '' ?>">&#9660;</span>
+                    <span aria-hidden="true" class="arrow-icon<?= $current_module === 'trongate_rbac' || $current_module === 'settings' || $current_module === 'post_types' ? ' rotate' : '' ?>">&#9660;</span>
                 </div>
-                <ul id="settings-submenu" class="nav-submenu" style="<?= $current_module === 'trongate_rbac' || $current_module === 'settings' ? 'max-height: 200px;' : '' ?>">
+                <ul id="settings-submenu" class="nav-submenu" style="<?= $current_module === 'trongate_rbac' || $current_module === 'settings' || $current_module === 'post_types' ? 'max-height: 200px;' : '' ?>">
                     <li><a href="settings"<?= $current_module === 'settings' ? ' class="active"' : '' ?>>General Settings</a></li>
+                    <li><a href="post_types/manage"<?= $current_module === 'post_types' ? ' class="active"' : '' ?>>Loại bài viết</a></li>
                     <li><a href="trongate_rbac/manage_roles"<?= $current_module === 'trongate_rbac' ? ' class="active"' : '' ?>>Access Control</a></li>
                 </ul>
             </li>

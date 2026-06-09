@@ -9,7 +9,9 @@
         <select id="typeFilter" class="posts-filter">
             <option value=""<?= !$current_type ? ' selected' : '' ?>>Tất cả loại (<?= array_sum(array_column($type_counts, 'total')) ?>)</option>
             <?php foreach ($type_counts as $tc): ?>
-            <option value="<?= $tc->type ?>"<?= $current_type === $tc->type ? ' selected' : '' ?>><?= out(ucfirst($tc->type)) ?> (<?= $tc->total ?>)</option>
+            <option value="<?= $tc->type ?>"<?= $current_type === $tc->type ? ' selected' : '' ?>>
+                <?= out($type_names[$tc->type] ?? ucfirst($tc->type)) ?> (<?= $tc->total ?>)
+            </option>
             <?php endforeach; ?>
         </select>
 
@@ -24,7 +26,7 @@
 </div>
 
 <?php if (empty($rows)): ?>
-<p style="margin-top:16px;color:#888">Chưa có bài viết nào.</p>
+<p style="text-align:center;color:#888">Chưa có bài viết nào.</p>
 <?php else: ?>
 <table class="records-table" style="margin-top:16px">
     <thead>
@@ -55,4 +57,5 @@
         <?php endforeach; ?>
     </tbody>
 </table>
+<?php echo Modules::run('pagination/display', $pagination_data); ?>
 <?php endif; ?>

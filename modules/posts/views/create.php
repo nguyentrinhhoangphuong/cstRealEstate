@@ -11,19 +11,19 @@
 </div>
 <div class="form-group">
     <label>Loại *</label>
-    <?= form_dropdown('type', [
-        'post' => 'Bài viết chung',
-        'news' => 'Tin tức',
-        'property' => 'Bất động sản',
-        'product' => 'Sản phẩm'
-    ], 'post') ?>
+    <select name="type" class="form-control" required>
+        <option value="">-- Chọn loại --</option>
+        <?php foreach ($types as $t): ?>
+        <option value="<?= $t->slug ?>"><?= out($t->name) ?></option>
+        <?php endforeach; ?>
+    </select>
 </div>
 <div class="form-group">
     <label>Trạng thái</label>
     <?= form_dropdown('status', [
         'draft' => 'Nháp',
         'publish' => 'Xuất bản'
-    ], 'draft') ?>
+    ], 'draft') ?>                                         
 </div>
 <div class="form-group actions">
     <button type="submit" name="submit" value="Save" class="button alt">Đăng bài</button>
